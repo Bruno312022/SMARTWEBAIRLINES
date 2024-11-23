@@ -2,7 +2,9 @@ package br.com.smartweb.airlines;
 
 public class ReservaNaoEncontradaException extends RuntimeException {
 
-    public ReservaNaoEncontradaException() {
+    private static final long serialVersionUID = 1L;
+
+	public ReservaNaoEncontradaException() {
     }
 
     public ReservaNaoEncontradaException(String message) {

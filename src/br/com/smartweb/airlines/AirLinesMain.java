@@ -12,8 +12,8 @@ public class AirLinesMain {
         servicoDeReserva.adicionar(new Reserva("28B111", voo, "Mari Lins da Fonseca"));
         servicoDeReserva.adicionar(new Reserva("74F877", voo, "Sebastião Coelho Beltrão"));
 
-        servicoDeBagagem.contratar("28AXXX", 2);
-
+        servicoDeBagagem.contratar("28A888", 2);
+        
         servicoDeReserva.getReservas().forEach(System.out::println);
         
         System.err.println("=====================================================================");

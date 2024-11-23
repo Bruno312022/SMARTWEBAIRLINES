@@ -1,7 +1,6 @@
 package br.com.smartweb.airlines;
 
 import java.util.Objects;
-import java.util.Optional;
 
 public class ServicoDeBagagem {
 
@@ -16,10 +15,12 @@ public class ServicoDeBagagem {
         if (quantidadeBagagens <= 0) {
             throw new IllegalArgumentException("Quantidade de bagagens inválida");
         }
-        // aqui poderia ter outras regras de negócio
 
-        Optional<Reserva> reservaOptional = servicoDeReserva.buscar(codigoReserva);
-        reservaOptional.get().adicionarBagagens(quantidadeBagagens);
+        Reserva reserva = servicoDeReserva.buscar(codigoReserva)
+            .orElseThrow(() -> new ReservaNaoEncontradaException(
+                String.format("Reserva com código %s não encontrada", codigoReserva)
+            ));
+        
+        reserva.adicionarBagagens(quantidadeBagagens);
     }
-
-}
+   }  
